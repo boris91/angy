@@ -1,0 +1,6 @@
+.idea/
+src/server/db/data/diagnostic.data/
+src/server/db/data/journal/
+src/server/db/data/mongod.lock
+node_modules/
+npm-debug.log
