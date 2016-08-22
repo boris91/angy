@@ -1,9 +1,7 @@
 import 'app/controllers/main';
-
-const dataview = document.createElement('div');
-dataview.innerHTML = '{{textToShow}}';
+import mainView from 'app/views/main';
 
 const root = document.body;
 root.setAttribute('ng-app', 'MainModule');
 root.setAttribute('ng-controller', 'MainCtrl');
-root.appendChild(dataview);
+root.appendChild(mainView);
