@@ -41,7 +41,7 @@ export default {
 		}],
 		loaders: [{
 			test: JS_RE,
-			loaders: ['babel-loader'],
+			loader: 'babel-loader',
 			include: CLIENT_PATH,
 			plugins: ['transform-runtime']
 		}, {

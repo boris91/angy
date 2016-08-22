@@ -4,19 +4,23 @@ mainModule.controller('MainCtrl', [
 	'$scope',
 	$scope => {
 		$scope.posts = [
-			{ title: 'Aa', rating: 54 },
-			{ title: 'Bb', rating: 5 },
-			{ title: 'Cc', rating: -39 },
-			{ title: 'Dd', rating: 44 },
-			{ title: 'Ee', rating: 0 },
+			{ title: 'Ee', rating: -2 },
+			{ title: 'Dd', rating: -1 },
+			{ title: 'Cc', rating: 0 },
+			{ title: 'Bb', rating: 1 },
+			{ title: 'Aa', rating: 2 },
 		];
 
 		$scope.addPost = () => {
-			$scope.posts.push({
-				title: $scope.newPostTitle,
-				rating: 0
-			});
-			$scope.newPostTitle = '';
+			if ($scope.title) {
+				$scope.posts.push({
+					title: $scope.title,
+					link: $scope.link,
+					rating: 0
+				});
+				$scope.title = '';
+				$scope.link = '';
+			}
 		};
 
 		$scope.voteAgainst = post => {

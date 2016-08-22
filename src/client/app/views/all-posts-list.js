@@ -1,11 +1,7 @@
-import postRatingDiv from 'app/views/post-rating-div'
-
-const postTitleDiv = document.createElement('div');
-postTitleDiv.innerText = '{{post.title}}';
+import item from 'app/views/all-posts-list-item';
 
 const view = document.createElement('div');
 view.setAttribute('ng-repeat', 'post in posts | orderBy: "-rating"');
-view.appendChild(postTitleDiv);
-view.appendChild(postRatingDiv);
+view.appendChild(item);
 
 export default view;
