@@ -7,6 +7,7 @@ const occurOrderPlugin = new webpack.optimize.OccurenceOrderPlugin();
 const hmrPlugin = new webpack.HotModuleReplacementPlugin();
 
 const JS_RE = /\.js$/;
+const HTML_RE = /\.html$/;
 const LESS_RE = /\.less$/;
 const IMG_FONTS_RE = /\.(png|woff|woff2|eot|ttf|svg)$/;
 const CLIENT_PATH = [path.resolve(__dirname, 'src/client')];
@@ -24,7 +25,7 @@ export default {
 	entry: [
 		'webpack-hot-middleware/client',
 		'babel-polyfill',
-		'./src/client/app/index'
+		'./src/client/index'
 	],
 
 	output: {
@@ -44,6 +45,10 @@ export default {
 			loader: 'babel-loader',
 			include: CLIENT_PATH,
 			plugins: ['transform-runtime']
+		}, {
+			test: HTML_RE,
+			loader: 'html',
+			include: CLIENT_PATH
 		}, {
 			test: LESS_RE,
 			loader: 'style!css!less!postcss',
@@ -65,5 +70,5 @@ export default {
 
 	serverHost: 'localhost',
 	serverPort: 9000,
-	indexHtmlPath: path.join(__dirname, 'src/client/app/index.html')
+	indexHtmlPath: path.join(__dirname, 'src/client/index.html')
 };
